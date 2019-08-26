@@ -9,19 +9,12 @@
 
 This crate provides locale-related codes/identifiers and any standards-based information
 concerning them. For example, ISO-396 language identifiers, or ISO-3166
-country identifiers. These are under the module `simple_locale::codes`.
+country identifiers.
 
 ## Example
 
 ```rust
-use locale_types::{LocaleIdentifier::LocaleString};
 use locale_codes::codes::{country, currency, region};
-
-let locale = LocaleString::new_strict("en".to_string())
-    .with_territory("US".to_string())
-    .with_code_set("UTF-8".to_string())
-    .with_modifier("collation=pinyin;currency=CNY".to_string());
-println!("{}", locale);
 
 let mexico = country::lookup_country("MEX").unwrap();
 println!("{:?}", mexico);
