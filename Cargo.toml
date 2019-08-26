@@ -9,7 +9,7 @@ repository = "https://github.com/johnstonskj/locale-codes.git"
 readme = "README.md"
 license = "MIT"
 keywords = ["locale", "POSIX"]
-categories = ["internationalization", "localization"]
+categories = ["internationalization", "localization", "value-formatting"]
 
 [dependencies]
 lazy_static = "1.3.0"
