@@ -53,7 +53,8 @@ Currently data is generated for the following standards:
 
 ## History
 
-* **0.1.0** - extracted from [simple-locale](https://github.com/johnstonskj/simple-locale).
+* **0.3.0** - collapsed module hierarchy.
+* **0.2.0** - extracted from [simple-locale](https://github.com/johnstonskj/simple-locale).
 
 ## TODO
 

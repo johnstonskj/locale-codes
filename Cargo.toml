@@ -1,6 +1,6 @@
 [package]
 name = "locale-codes"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["Simon Johnston <johnstonskj@gmail.com>"]
 edition = "2018"
 description = "locale-related codes/identifiers and any standards-based information concerning them."
