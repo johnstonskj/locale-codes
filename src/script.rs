@@ -57,6 +57,8 @@ lazy_static! {
     static ref NUMERIC_LOOKUP: HashMap<u16, String> = make_script_lookup();
 }
 
+/// Lookup a `ScriptInfo` based on it's ISO-15924 4-character identifier, returning
+/// `None` if the name does not exist in the current ISO data set.
 pub fn lookup_by_alpha(alphabetic_code: &str) -> Option<&'static ScriptInfo> {
     assert_eq!(
         alphabetic_code.len(),
@@ -66,6 +68,8 @@ pub fn lookup_by_alpha(alphabetic_code: &str) -> Option<&'static ScriptInfo> {
     SCRIPTS.get(alphabetic_code)
 }
 
+/// Lookup a `ScriptInfo` based on it's ISO-15924 numeric identifier, returning
+/// `None` if the name does not exist in the current ISO data set.
 pub fn lookup_by_numeric(numeric_code: &u16) -> Option<&'static ScriptInfo> {
     match NUMERIC_LOOKUP.get(&numeric_code) {
         Some(v) => lookup_by_alpha(v),
@@ -73,10 +77,12 @@ pub fn lookup_by_numeric(numeric_code: &u16) -> Option<&'static ScriptInfo> {
     }
 }
 
+/// Return all the registered ISO-15924 4-character country codes.
 pub fn all_alpha_codes() -> Vec<String> {
     SCRIPTS.keys().cloned().collect()
 }
 
+/// Return all the registered ISO-15924 numeric country codes.
 pub fn all_numeric_codes() -> Vec<u16> {
     NUMERIC_LOOKUP.keys().cloned().collect()
 }

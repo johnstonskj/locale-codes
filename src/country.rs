@@ -52,6 +52,8 @@ lazy_static! {
     static ref LOOKUP: HashMap<String, String> = make_country_lookup();
 }
 
+/// Lookup a `CountryInfo` based on it's ISO-3166 identifier, returning
+/// `None` if the name does not exist in the current ISO data set.
 pub fn lookup(code: &str) -> Option<&'static CountryInfo> {
     debug!("lookup_country: {}", code);
     assert!(
@@ -77,6 +79,7 @@ pub fn lookup(code: &str) -> Option<&'static CountryInfo> {
     }
 }
 
+/// Return all the registered ISO-3166 2-character country codes.
 pub fn all_codes() -> Vec<String> {
     COUNTRIES.keys().cloned().collect()
 }

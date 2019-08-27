@@ -79,12 +79,17 @@ the JSON in the correct location. Each should also contain a README
 that includes attribution for any data retrieved to make this possible.
 */
 
+#![warn(
+    missing_debug_implementations,
+    missing_docs,
+    unused_extern_crates,
+    rust_2018_idioms
+)]
+
 #[macro_use]
 extern crate lazy_static;
 #[macro_use]
 extern crate log;
-extern crate serde;
-extern crate serde_json;
 
 // ------------------------------------------------------------------------------------------------
 // Public Modules

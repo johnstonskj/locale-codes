@@ -39,6 +39,8 @@ lazy_static! {
     static ref REGIONS: HashMap<u16, RegionInfo> = load_regions_from_json();
 }
 
+/// Lookup a `RegionInfo` based on it's ISO-3166 numeric identifier, returning
+/// `None` if the name does not exist in the current ISO data set.
 pub fn lookup(code: u16) -> Option<&'static RegionInfo> {
     info!("lookup_region: {}", code);
     match REGIONS.get(&code) {
@@ -47,6 +49,7 @@ pub fn lookup(code: u16) -> Option<&'static RegionInfo> {
     }
 }
 
+/// Return all the registered ISO-3166 numeric region codes.
 pub fn all_codes() -> Vec<u16> {
     REGIONS.keys().cloned().collect()
 }

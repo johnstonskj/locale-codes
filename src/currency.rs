@@ -63,6 +63,8 @@ lazy_static! {
     static ref NUMERIC_LOOKUP: HashMap<u16, String> = make_currency_lookup();
 }
 
+/// Lookup a `CurrencyInfo` based on it's ISO-4217 3-character identifier,
+/// returning `None` if the name does not exist in the current ISO data set.
 pub fn lookup_by_alpha(alphabetic_code: &str) -> Option<&'static CurrencyInfo> {
     assert_eq!(
         alphabetic_code.len(),
@@ -72,6 +74,8 @@ pub fn lookup_by_alpha(alphabetic_code: &str) -> Option<&'static CurrencyInfo> {
     CURRENCIES.get(alphabetic_code)
 }
 
+/// Lookup a `CurrencyInfo` based on it's ISO-4217 numeric identifier,
+/// returning `None` if the name does not exist in the current ISO data set.
 pub fn lookup_by_numeric(numeric_code: &u16) -> Option<&'static CurrencyInfo> {
     match NUMERIC_LOOKUP.get(&numeric_code) {
         Some(v) => lookup_by_alpha(v),
@@ -79,14 +83,8 @@ pub fn lookup_by_numeric(numeric_code: &u16) -> Option<&'static CurrencyInfo> {
     }
 }
 
-pub fn currency_alpha_codes() -> Vec<String> {
-    CURRENCIES.keys().cloned().collect()
-}
-
-pub fn currency_numeric_codes() -> Vec<u16> {
-    NUMERIC_LOOKUP.keys().cloned().collect()
-}
-
+/// Lookup all `CurrencyInfo` instances that are used by the identified
+/// country name.
 pub fn currencies_for_country_name(name: &str) -> Vec<&'static CurrencyInfo> {
     CURRENCIES
         .values()
@@ -94,10 +92,12 @@ pub fn currencies_for_country_name(name: &str) -> Vec<&'static CurrencyInfo> {
         .collect()
 }
 
+/// Return all the registered ISO-4217 3-character currency codes.
 pub fn all_alpha_codes() -> Vec<String> {
     CURRENCIES.keys().cloned().collect()
 }
 
+/// Return all the registered ISO-4217 numeric currency codes.
 pub fn all_numeric_codes() -> Vec<u16> {
     NUMERIC_LOOKUP.keys().cloned().collect()
 }
@@ -154,9 +154,9 @@ mod tests {
     // --------------------------------------------------------------------------------------------
     #[test]
     fn test_currency_codes() {
-        let codes = currency_alpha_codes();
+        let codes = all_alpha_codes();
         assert!(codes.len() > 0);
-        let numerics = currency_numeric_codes();
+        let numerics = all_numeric_codes();
         assert!(numerics.len() > 0);
     }
 

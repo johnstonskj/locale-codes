@@ -40,8 +40,11 @@ use serde::{Deserialize, Serialize};
 /// one of these classes only.
 #[derive(Serialize, Deserialize, Debug)]
 pub enum LanguageClass {
+    /// An individual language
     Individual,
+    /// A language family
     MacroLanguage,
+    /// Other kinds of languages
     Special,
 }
 
@@ -49,11 +52,17 @@ pub enum LanguageClass {
 /// current usage.
 #[derive(Serialize, Deserialize, Debug)]
 pub enum LanguageType {
+    /// Ancient, but not extinct
     Ancient,
+    /// A constructed, often artificial
     Constructed,
+    /// No longer has any native speaker
     Extinct,
+    /// Of historical interest
     Historical,
+    /// A living, spoken language
     Living,
+    /// Other kinds of languages
     Special,
 }
 
@@ -68,10 +77,15 @@ pub struct LanguageInfo {
     pub indigenous_name: Option<String>,
     /// Common aliases.
     pub other_names: Option<Vec<String>>,
+    /// TBD
     pub bibliographic_code: Option<String>,
+    /// TBD
     pub terminology_code: Option<String>,
+    /// TBD
     pub short_code: Option<String>,
+    /// TBD
     pub class: LanguageClass,
+    /// TBD
     pub l_type: LanguageType,
     /// if `class` is `LanguageClass::MacroLanguage` this is
     /// a vector of family members of this language.
@@ -87,6 +101,9 @@ lazy_static! {
     static ref LOOKUP: HashMap<String, String> = make_language_lookup();
 }
 
+/// Lookup a `LanguageInfo` based on it's ISO-639 2, or 3, character
+/// identifier, returning `None` if the name does not exist in the
+/// current ISO data set.
 pub fn lookup(code: &str) -> Option<&'static LanguageInfo> {
     debug!("language::lookup {}", code);
     assert!(
@@ -109,6 +126,7 @@ pub fn lookup(code: &str) -> Option<&'static LanguageInfo> {
     }
 }
 
+/// Return all the registered ISO-639 2-character language codes.
 pub fn all_codes() -> Vec<String> {
     LANGUAGES.keys().cloned().collect()
 }
