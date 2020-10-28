@@ -1,10 +1,11 @@
 # Crate locale-codes
 
-[![travis.ci](https://travis-ci.org/johnstonskj/locale-codes.svg?branch=master)](https://travis-ci.org/johnstonskj/locale-codes)
+![mit License](https://img.shields.io/badge/license-mit-118811.svg)
+![Minimum Rust Version](https://img.shields.io/badge/Min%20Rust-1.34-green.svg)
 [![crates.io](https://img.shields.io/crates/v/locale-codes.svg)](https://crates.io/crates/locale-codes)
 [![docs.rs](https://docs.rs/locale-codes/badge.svg)](https://docs.rs/locale-codes)
-![Minimum Rust Version](https://img.shields.io/badge/Min%20Rust-1.34-green.svg)
-![mit License](https://img.shields.io/badge/license-mit-118811.svg)
+![Build](https://github.com/johnstonskj/locale-codes/workflows/Rust/badge.svg)
+![Audit](https://github.com/johnstonskj/locale-codes/workflows/Security%20audit/badge.svg)
 [![GitHub stars](https://img.shields.io/github/stars/johnstonskj/locale-codes.svg)](https://github.com/johnstonskj/locale-codes/stargazers)
 
 This crate provides locale-related codes/identifiers and any standards-based information
