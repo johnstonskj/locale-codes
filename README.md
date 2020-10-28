@@ -15,7 +15,7 @@ country identifiers.
 ## Example
 
 ```rust
-use locale_codes::codes::{country, currency, region};
+use locale_codes::{country, currency, region};
 
 let mexico = country::lookup_country("MEX").unwrap();
 println!("{:?}", mexico);
@@ -46,7 +46,7 @@ Currently data is generated for the following standards:
 * ISO 639 _Codes for the representation of names of languages_; Parts 1-4, 
   2-character and 3-character codes supported. 
 * ISO 3166 _Codes for the representation of names of countries and their 
-  subdivisions_; Part 1, 2-character codes, only.
+  subdivisions_; Both 2- and 3-character codes are supported.
 * ISO 4217 _Codes for the representation of currencies_; alphabetic and 
   numeric codes supported.
 * ISO 15924 _Codes for the representation of names of scripts_; alphabetic 
