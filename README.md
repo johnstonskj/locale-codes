@@ -9,7 +9,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/johnstonskj/locale-codes.svg)](https://github.com/johnstonskj/locale-codes/stargazers)
 
 This crate provides locale-related codes/identifiers and any standards-based information
-concerning them. For example, ISO-396 language identifiers, or ISO-3166
+concerning them. For example, ISO-639 language identifiers, or ISO-3166
 country identifiers.
 
 ## Example
